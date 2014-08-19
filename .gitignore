@@ -1,0 +1,7 @@
+# Temporary files
+.*.swp
+*.pyc
+*.pyo
+
+# Build-related files
+docs/_build/
