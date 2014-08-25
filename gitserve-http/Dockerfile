@@ -2,7 +2,7 @@ FROM xelnor/nginx
 MAINTAINER Raphaël Barrois <docker@r.xelmail.com>
 
 # Extra packages
-RUN apt-get install -qqy supervisor fcgiwrap git
+RUN apt-get install -qqy supervisor fcgiwrap git highlight
 
 # Binaries
 RUN mkdir /gitweb
