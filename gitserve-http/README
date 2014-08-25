@@ -1,0 +1,11 @@
+gitserve-http
+=============
+
+
+Serve git repositories over the web, using gitweb.
+
+This image expects git repositories to be mounted at ``/git``:
+
+.. code-block:: sh
+
+    docker run -p 8080:80 -v ~/dev:/git -t -i xelnor/gitserve-http
