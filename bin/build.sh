@@ -9,8 +9,8 @@ function build_image() {
     image=$1;
     image_alias=$(basename "${image}");
     dockerfile_path="${image}/Dockerfile";
-    timestamp=$(date --utc --iso-8601=seconds | tr 'T' '_' | tr -d ':' | head -c -6);
-    full_tag="${USER}/${image_alias}:${timestamp}";
+    #timestamp=$(date --utc --iso-8601=seconds | tr 'T' '_' | tr -d ':' | head -c -6);
+    full_tag="${USER}/${image_alias}";  #:${timestamp}";
 
     if [[ ! -f "${dockerfile_path}" ]]; then
         die 1 "Missing Dockerfile at ${dockerfile_path}, exiting.";
