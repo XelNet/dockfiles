@@ -5,11 +5,12 @@ DOCKER=/usr/bin/docker
 USER=xelnor
 
 function build_image() {
-    local image default_tag full_tag dockerfile_path;
+    local image default_tag full_tag dockerfile_path timestamp;
     image=$1;
-    default_tag=$(basename "${image}");
+    image_alias=$(basename "${image}");
     dockerfile_path="${image}/Dockerfile";
-    full_tag="${USER}/${default_tag}";
+    timestamp=$(date --utc --iso-8601=seconds | tr 'T' '_' | tr -d ':' | head -c -6);
+    full_tag="${USER}/${image_alias}:${timestamp}";
 
     if [[ ! -f "${dockerfile_path}" ]]; then
         die 1 "Missing Dockerfile at ${dockerfile_path}, exiting.";
