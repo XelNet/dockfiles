@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+nginx-docker-setup
+
+exec /usr/sbin/nginx -c /etc/nginx/nginx.conf

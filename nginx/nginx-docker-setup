@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Helper to generate NGINX configuration based on environment variables.
+
+SYSLOG_ENABLED=${SYSLOG_ENABLED:-0}
+
+if [[ "${SYSLOG_ENABLED}" = "1" ]]; then
+    SYSLOG_FACILITY=${SYSLOG_FACILITY:-"daemon"}
+    SYSLOG_LEVEL=${SYSLOG_LEVEL:-"info"}
+    SYSLOG_SERVER=${SYSLOG_SERVER:-"unix:/dev/log"}
+    SYSLOG_TAG=${SYSLOG_TAG:-"nginx"}
+
+    LOG_LOCATION="syslog:server=${SYSLOG_SERVER},facility=${SYSLOG_FACILITY},tag=${SYSLOG_TAG},severity=${SYSLOG_LEVEL}";
+else
+    LOG_LOCATION="/var/log/nginx/access.log"
+fi
+
+sed "s|@@ACCESS_LOG@@|${LOG_LOCATION}|" /etc/nginx/nginx.conf.in > /etc/nginx/nginx.conf

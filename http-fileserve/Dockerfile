@@ -6,7 +6,6 @@ ADD fileserve /etc/nginx/sites-enabled/
 VOLUME ["/data"]
 
 WORKDIR /etc/nginx
-CMD ["nginx"]
 
 EXPOSE 80
-#ENTRYPOINT ["/usr/bin/nginx"]
+CMD ["/usr/sbin/nginx-docker-startup"]

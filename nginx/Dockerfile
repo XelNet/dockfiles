@@ -14,4 +14,9 @@ RUN apt-get install -qqy nginx
 #        echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
 #        chown -R www-data:www-data /var/lib/nginx && \
 #        rm /etc/nginx/sites-enabled/default
-ADD nginx.conf /etc/nginx/nginx.conf
+ADD nginx-docker-startup /usr/sbin/
+ADD nginx-docker-setup /usr/sbin/
+ADD nginx.conf /etc/nginx/nginx.conf.in
+
+# Provide a default, valid nginx.conf
+RUN nginx-docker-setup
