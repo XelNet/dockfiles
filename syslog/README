@@ -1,0 +1,20 @@
+xelnor/syslog
+=============
+
+A syslog-ng image.
+
+Listens on 514/udp, 514/tcp and on /devext/log.
+Writes logs to /log.
+Expects configuration at /config.
+
+
+Usage::
+
+    mkfifo /run/docker-shared-dev/log;
+    docker run \
+        --publish=514:514/tcp \
+        --publish=514:514/udp \
+        --volume=/run/docker-shared-dev:/devext/ \
+        --volume=syslog.conf.d/:/config \
+        --volume=/tmp/logs:/logs \
+        xelnor/syslog
