@@ -1,4 +1,4 @@
-FROM xelnor/xelbase
+FROM rbarrois/xelbase
 MAINTAINER Raphaël Barrois <docker@r.xelmail.com>
 
 # Extra packages

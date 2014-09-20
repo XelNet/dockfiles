@@ -1,4 +1,4 @@
-FROM xelnor/nginx
+FROM rbarrois/nginx
 MAINTAINER Raphaël Barrois <docker@r.xelmail.com>
 
 # Extra packages

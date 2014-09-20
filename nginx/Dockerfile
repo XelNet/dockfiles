@@ -1,4 +1,4 @@
-FROM xelnor/xelbase
+FROM rbarrois/xelbase
 MAINTAINER Raphaël Barrois <docker@r.xelmail.com>
 
 # Setup ppa (until nginx 1.7 is available in jessie)
