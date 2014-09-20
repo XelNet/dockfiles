@@ -2,8 +2,10 @@ FROM rbarrois/xelbase
 MAINTAINER Raphaël Barrois <docker@r.xelmail.com>
 
 # Extra packages
-RUN apt-get update -qq
-RUN apt-get install -qqy syslog-ng
+RUN \
+        apt-get update -qq && \
+        apt-get install -qqy syslog-ng && \
+        apt-get clean
 
 RUN useradd --system --home-dir /logs --user-group log
 
