@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DINSTALL_PIDFILE=/debrepo/mini-dinstall/mini-dinstall.lock
+if [[ -f "$DINSTALL_PIDFILE" ]]; then
+    rm -f "$DINSTALL_PIDFILE";
+fi
+
+function leave () {
+    mini-dinstall --config=/etc/mini-dinstall.conf --kill;
+    exit
+}
+trap leave SIGTERM
+
+fghack mini-dinstall --verbose --config=/etc/mini-dinstall.conf
+exit $?

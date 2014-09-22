@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Image entry point.
+#
+# 1. Setup sshd host keys if needed
+# 2. Write down valid public keys
+# 3. Run sshd
+
+function gen_key () {
+    local path kind;
+    path=$1;
+    kind=$2;
+    if [[ ! -f "$path" ]]; then
+        ssh-keygen -f "$path" -N "" -t "$kind";
+    fi
+}
+
+# Generate keys if needed
+gen_key /sshd-keys/ssh_host_rsa_key rsa
+gen_key /sshd-keys/ssh_host_dsa_key dsa
+gen_key /sshd-keys/ssh_host_ecdsa_key ecdsa
+
+if [[ -n "$SSH_PUBKEYS" ]]; then
+    echo "$SSH_PUBKEYS" > /sshd-keys/authorized_keys;
+fi
+
+# "unlock" debrepo account; we don't want to use PAM.
+usermod -p $(head -c 128 /dev/urandom | base64 -w 0) debrepo
+
+# Required by sshd.
+mkdir -p /var/run/sshd
+
+# Run in foreground, log to stderr
+exec /usr/sbin/sshd -D -E /dev/stderr
