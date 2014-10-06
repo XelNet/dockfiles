@@ -1,4 +1,4 @@
-FROM rbarrois/debpack-repobase
+FROM xelnet/debpack-repobase
 MAINTAINER Raphaël Barrois <docker@r.xelmail.com>
 
 # Common setup for "debian repository" images

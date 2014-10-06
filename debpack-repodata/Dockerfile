@@ -1,4 +1,4 @@
-FROM rbarrois/debpack-repobase
+FROM xelnet/debpack-repobase
 MAINTAINER Raphaël Barrois <docker@r.xelmail.com>
 
 # Data container for debrepo

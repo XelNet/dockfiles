@@ -1,5 +1,5 @@
-rbarrois/debuild
-================
+xelnet/debuild
+==============
 
 A simple image for building Debian packages.
 

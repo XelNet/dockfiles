@@ -1,4 +1,4 @@
-FROM rbarrois/xelbuild
+FROM xelnet/xelbuild
 MAINTAINER Raphaël Barrois <docker@r.xelmail.com>
 
 # Base image for debian builds.

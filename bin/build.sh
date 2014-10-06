@@ -2,7 +2,7 @@
 
 TARGET=$1
 DOCKER=/usr/bin/docker
-USER=rbarrois
+USER=xelnet
 
 function build_image() {
     local image default_tag full_tag dockerfile_path timestamp;

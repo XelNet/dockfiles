@@ -1,5 +1,5 @@
-rbarrois/debpack-repo-sftp
-==========================
+xelnet/debpack-repo-sftp
+========================
 
 SFTP incoming server for the debpack-repo family.
 

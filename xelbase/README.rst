@@ -1,5 +1,5 @@
-rbarrois/xelbase
-================
+xelnet/xelbase
+==============
 
 This image is the core on top of which each other image is built.
 
