@@ -12,11 +12,14 @@ function build_image() {
     #timestamp=$(date --utc --iso-8601=seconds | tr 'T' '_' | tr -d ':' | head -c -6);
     full_tag="${USER}/${image_alias}";  #:${timestamp}";
 
+    if [[ -f "${image}/Makefile" ]]; then
+        echo "Preparing build of ${image}..."
+        make -C "${image}" || die 2 "make -C ${image} failed."
+    fi
+
     if [[ ! -f "${dockerfile_path}" ]]; then
         die 1 "Missing Dockerfile at ${dockerfile_path}, exiting.";
     fi
-
-
 
     echo "Building image ${full_tag} from Dockerfile ${dockerfile_path}...";
     ${DOCKER} build -t "${full_tag}" "${image}"
