@@ -1,4 +1,4 @@
-TAG = 20141009
+TAG = 20141030
 TARFILE = stage3-amd64-hardened-$(TAG).tar.bz2
 MIRROR = http://distfiles.gentoo.org/releases/amd64/autobuilds/$(TAG)/hardened/
 GPG_KEYRING = .gpg-keyring
