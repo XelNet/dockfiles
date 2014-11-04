@@ -1,4 +1,4 @@
-FROM xelnet/gentoo
+FROM xelnet/gentoo-base
 MAINTAINER Raphaël Barrois <docker@r.xelmail.com>
 
 VOLUME /etc/portage
