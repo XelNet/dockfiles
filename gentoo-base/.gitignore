@@ -1,2 +1,4 @@
 dl/*.tar.bz2*
 *.tar.bz2
+.gpg-keyring/
+Dockerfile
